@@ -1,0 +1,87 @@
+{
+  "mean_ms": 0.11,
+  "p50_ms": 0.1,
+  "p90_ms": 0.16,
+  "p99_ms": 0.21,
+  "qps": 9478.3,
+  "index_size_mb": 2.69,
+  "doc_count": 303,
+  "term_count": 24312,
+  "queries": [
+    {
+      "query": "python programming",
+      "hits": 10,
+      "avg_ms": 0.13
+    },
+    {
+      "query": "artificial intelligence",
+      "hits": 10,
+      "avg_ms": 0.09
+    },
+    {
+      "query": "machine learning",
+      "hits": 10,
+      "avg_ms": 0.14
+    },
+    {
+      "query": "cricket world cup",
+      "hits": 10,
+      "avg_ms": 0.16
+    },
+    {
+      "query": "film making",
+      "hits": 10,
+      "avg_ms": 0.11
+    },
+    {
+      "query": "deep learning neural networks",
+      "hits": 10,
+      "avg_ms": 0.16
+    },
+    {
+      "query": "food cooking recipes",
+      "hits": 10,
+      "avg_ms": 0.08
+    },
+    {
+      "query": "football premier league",
+      "hits": 10,
+      "avg_ms": 0.06
+    },
+    {
+      "query": "health fitness",
+      "hits": 10,
+      "avg_ms": 0.08
+    },
+    {
+      "query": "technology news",
+      "hits": 10,
+      "avg_ms": 0.1
+    },
+    {
+      "query": "natural language processing",
+      "hits": 10,
+      "avg_ms": 0.16
+    },
+    {
+      "query": "robotics automation",
+      "hits": 10,
+      "avg_ms": 0.06
+    },
+    {
+      "query": "climate environment",
+      "hits": 10,
+      "avg_ms": 0.06
+    },
+    {
+      "query": "history ancient",
+      "hits": 10,
+      "avg_ms": 0.1
+    },
+    {
+      "query": "science discovery",
+      "hits": 10,
+      "avg_ms": 0.1
+    }
+  ]
+}
