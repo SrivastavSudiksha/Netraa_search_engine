@@ -9,19 +9,19 @@ A production-grade search engine built from scratch in Python that crawls the we
 ## Screenshots
 
 ### Home
-![Home](assets/main.png)
+<img src="assets/main.png" alt="Home" width="700">
 
 ### Search Results — Light Mode
-![Results](assets/result.png)
+<img src="assets/result.png" alt="Results" width="700">
 
 ### Search Results — Dark Mode
-![Dark Mode](assets/dark.png)
+<img src="assets/dark.png" alt="Dark Mode" width="700">
 
 ### Recent Searches
-![Recent Searches](assets/search_history.png)
+<img src="assets/search_history.png" alt="Recent Searches" width="350">
 
 ### Benchmark Output
-![Benchmark](assets/benchmark.png)
+<img src="assets/benchmark.png" alt="Benchmark" width="700">
 
 ---
 
