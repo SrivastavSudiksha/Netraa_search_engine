@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netraa</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+{% if query %}
+
+<div class="results-page">
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <a href="/"><img src="{{ url_for('static', filename='netraa-logo.png') }}" alt="Netraa" class="sidebar-logo"></a>
+            <button class="sidebar-toggle" onclick="toggleSidebar()"><i class="fas fa-bars"></i></button>
+        </div>
+        <div class="sidebar-section">
+            <div class="sidebar-section-header" onclick="toggleSection(this)">
+                <span>Recent Searches</span>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="sidebar-section-content" id="recent-searches"></div>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <div class="results-header">
+            <button class="sidebar-toggle-btn" onclick="toggleSidebar()"><i class="fas fa-bars"></i></button>
+            <a href="/"><img src="{{ url_for('static', filename='netraa-logo.png') }}" alt="Netraa" class="results-logo-img"></a>
+            <form class="results-search-box" id="search-form">
+                <i class="fas fa-search"></i>
+                <input type="text" name="q" id="search-input" value="{{ query }}" autofocus>
+                <button type="submit" class="search-submit-btn">
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </form>
+            <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">
+                <i class="fas fa-moon" id="theme-icon"></i>
+            </button>
+        </div>
+
+        <div class="tabs-bar" id="tabs-bar"></div>
+
+        <div class="results-body">
+            <div class="results-left" id="results-left">
+                {% if results %}
+                <p class="results-stats" data-elapsed="{{ elapsed }}">{{ results|length }} results &nbsp;·&nbsp; {{ elapsed }} ms</p>
+                {% for r in results %}
+                <div class="result-card">
+                    <div class="result-url">
+                        <span class="result-domain">{{ r.url.split('/')[2] if '/' in r.url else r.url }}</span>
+                    </div>
+                    <a href="{{ r.url }}" target="_blank">{{ r.title }}</a>
+                    <div class="result-snippet">{{ r.snippet }}</div>
+                </div>
+                {% endfor %}
+                {% else %}
+                <p class="no-results">No results found for "<strong>{{ query }}</strong>"</p>
+                {% endif %}
+            </div>
+
+            <div class="results-right" id="results-right">
+                {% if results %}
+                <div class="knowledge-panel">
+                    <h2>{{ results[0].title }}</h2>
+                    <div class="knowledge-url">{{ results[0].url }}</div>
+                    <p class="knowledge-snippet">{{ results[0].snippet }}</p>
+                    <a href="{{ results[0].url }}" target="_blank" class="knowledge-link">
+                        Visit page <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% else %}
+
+<div class="home-container">
+    <button class="theme-toggle home-theme-toggle" onclick="toggleTheme()" title="Toggle theme">
+        <i class="fas fa-moon" id="theme-icon"></i>
+    </button>
+    <div class="home-content">
+        <img src="{{ url_for('static', filename='netraa-logo.png') }}" alt="Netraa" class="logo-img">
+        <form class="search-box" action="/search" method="get">
+            <i class="fas fa-search"></i>
+            <input type="text" name="q" placeholder="Search the web..." autofocus>
+            <i class="fas fa-microphone"></i>
+        </form>
+        <div class="home-buttons">
+            <button class="btn" onclick="this.closest('form').submit()">Netraa Search</button>
+            <button class="btn" type="button" onclick="document.querySelector('.search-box input').value=''; document.querySelector('.search-box input').focus()">Clear</button>
+        </div>
+    </div>
+    <footer class="home-footer">
+        <a href="#">About</a>
+        <a href="#">How it works</a>
+        <a href="#">Privacy</a>
+        <a href="#">GitHub</a>
+    </footer>
+</div>
+
+{% endif %}
+
+<script src="{{ url_for('static', filename='main.js') }}"></script>
+
+</body>
+</html>
